@@ -10,7 +10,7 @@ on:
     - cron: '45 8 * * *'   # 2:15 PM IST - SQL Call
     - cron: '30 13 * * *'  # 7:00 PM IST - Evening WhatsApp
     - cron: '45 13 * * *'  # 7:15 PM IST - Evening Call
-    - cron: '33 14 * * *'   # TEST CALL NOW
+    - cron: '36 14 * * *'   # TEST CALL NOW
   workflow_dispatch:
 
 jobs:
