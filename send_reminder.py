@@ -7,8 +7,8 @@ TWILIO_ACCOUNT_SID = os.environ["TWILIO_ACCOUNT_SID"]
 TWILIO_AUTH_TOKEN  = os.environ["TWILIO_AUTH_TOKEN"]
 TWILIO_PHONE       = "whatsapp:+14155238886"
 TWILIO_CALL_FROM   = os.environ["TWILIO_PHONE_NUMBER"]   # your Twilio number for calls
-YOUR_WHATSAPP      = "whatsapp:+918500613315"
-YOUR_PHONE         = "+918500613315"
+YOUR_WHATSAPP = "whatsapp:+917093891720"
+YOUR_PHONE    = "+917093891720"
 
 DEVOPS_TOPICS = [
     "Demo1 — Introduction","Demo2 — Introduction","Introduction class",
