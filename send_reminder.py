@@ -1,12 +1,14 @@
 import sys
 import os
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 from twilio.rest import Client
 
 TWILIO_ACCOUNT_SID = os.environ["TWILIO_ACCOUNT_SID"]
 TWILIO_AUTH_TOKEN  = os.environ["TWILIO_AUTH_TOKEN"]
 TWILIO_PHONE       = "whatsapp:+14155238886"
+TWILIO_CALL_FROM   = os.environ["TWILIO_PHONE_NUMBER"]   # your Twilio number for calls
 YOUR_WHATSAPP      = "whatsapp:+918500613315"
+YOUR_PHONE         = "+918500613315"
 
 DEVOPS_TOPICS = [
     "Demo1 — Introduction","Demo2 — Introduction","Introduction class",
@@ -93,13 +95,12 @@ START_DATE = date(2026, 5, 3)
 def get_topics():
     today = date.today()
     if today < START_DATE:
-        return None, None, None
+        return "Not started yet", "Not started yet", "Not started yet"
     weekday_count = 0
     d = START_DATE
     while d < today:
         if d.weekday() < 5:
             weekday_count += 1
-        from datetime import timedelta
         d += timedelta(days=1)
     devops = DEVOPS_TOPICS[weekday_count] if weekday_count < len(DEVOPS_TOPICS) else "DevOps revision"
     python = PYTHON_TOPICS[weekday_count] if weekday_count < len(PYTHON_TOPICS) else "Python revision"
@@ -109,27 +110,69 @@ def get_topics():
 def send_whatsapp(message):
     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
     client.messages.create(body=message, from_=TWILIO_PHONE, to=YOUR_WHATSAPP)
-    print("Message sent!")
+    print("WhatsApp message sent!")
 
-subject = sys.argv[1] if len(sys.argv) > 1 else "DevOps"
+def make_call(subject, topic):
+    client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+    call_text = (
+        f"Hello Alivelu! This is your study reminder. "
+        f"It is time to start your {subject} session. "
+        f"Today's topic is {topic}. "
+        f"Please open your study material and start now. "
+        f"Remember, consistency is the key to success. "
+        f"Good luck! Start studying now!"
+    )
+    twiml = f"<Response><Say voice='alice' language='en-IN'>{call_text}</Say></Response>"
+    call = client.calls.create(twiml=twiml, from_=TWILIO_CALL_FROM, to=YOUR_PHONE)
+    print(f"Call made! SID: {call.sid}")
+
+# Get action from command line: DevOps, Python, SQL, Evening, call-DevOps, call-Python, call-SQL
+action = sys.argv[1] if len(sys.argv) > 1 else "DevOps"
 devops, python, sql = get_topics()
-today = datetime.now().strftime("%A, %d %b")
+today_str = datetime.now().strftime("%A, %d %b")
 
-if subject == "DevOps":
-    topic, emoji = devops, "🔧"
-elif subject == "Python":
-    topic, emoji = python, "🐍"
-elif subject == "SQL":
-    topic, emoji = sql, "🗄️"
-else:
-    message = (f"📚 *Evening Revision* — {today}\n\n🔧 DevOps: {devops}\n🐍 Python: {python}\n🗄️ SQL: {sql}\n\nRevise for 30 mins!")
-    send_whatsapp(message)
-    exit()
+# Handle CALLS
+if action == "call-DevOps":
+    make_call("DevOps", devops)
 
-message = (
-    f"{emoji} *Time to study {subject}!* — {today}\n\n"
-    f"Today's topic:\n*{topic}*\n\n"
-    f"📺 Open your study material and start now!\n"
-    f"⏱️ Target: 2 hours of focused study 💪"
-)
-send_whatsapp(message)
+elif action == "call-Python":
+    make_call("Python", python)
+
+elif action == "call-SQL":
+    make_call("SQL", sql)
+
+elif action == "call-Evening":
+    make_call("evening revision", "DevOps, Python and SQL topics from today")
+
+# Handle WHATSAPP MESSAGES
+elif action == "DevOps":
+    msg = (f"🔧 *Time to study DevOps!* — {today_str}\n\n"
+           f"Today's topic:\n*{devops}*\n\n"
+           f"📺 Open your study material and start now!\n"
+           f"⏱️ Target: 2 hours of focused study\n\n"
+           f"_(No reply? I will CALL you in 15 mins!)_ 📞")
+    send_whatsapp(msg)
+
+elif action == "Python":
+    msg = (f"🐍 *Time to study Python!* — {today_str}\n\n"
+           f"Today's topic:\n*{python}*\n\n"
+           f"📺 Open your study material and start now!\n"
+           f"⏱️ Target: 2 hours of focused study\n\n"
+           f"_(No reply? I will CALL you in 15 mins!)_ 📞")
+    send_whatsapp(msg)
+
+elif action == "SQL":
+    msg = (f"🗄️ *Time to study SQL!* — {today_str}\n\n"
+           f"Today's topic:\n*{sql}*\n\n"
+           f"📺 Open your study material and start now!\n"
+           f"⏱️ Target: 2 hours of focused study\n\n"
+           f"_(No reply? I will CALL you in 15 mins!)_ 📞")
+    send_whatsapp(msg)
+
+elif action == "Evening":
+    msg = (f"📚 *Evening Revision* — {today_str}\n\n"
+           f"🔧 DevOps: {devops}\n"
+           f"🐍 Python: {python}\n"
+           f"🗄️ SQL: {sql}\n\n"
+           f"Revise all 3 topics for 30 mins! 💪")
+    send_whatsapp(msg)
