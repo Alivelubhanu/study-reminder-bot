@@ -122,9 +122,7 @@ def make_call(subject, topic):
         f"Remember, consistency is the key to success. "
         f"Good luck! Start studying now!"
     )
-    twiml = f"<Response><Say voice='alice' language='en-IN'>{call_text}</Say></Response>"
-    call = client.calls.create(twiml=twiml, from_=TWILIO_CALL_FROM, to=YOUR_PHONE)
-    print(f"Call made! SID: {call.sid}")
+    twiml = f"<Response><Pause length='6'/><Say voice='alice' language='en-IN'>{call_text}</Say></Response>"
 
 # Get action from command line: DevOps, Python, SQL, Evening, call-DevOps, call-Python, call-SQL
 action = sys.argv[1] if len(sys.argv) > 1 else "DevOps"
