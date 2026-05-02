@@ -10,7 +10,6 @@ on:
     - cron: '45 8 * * *'   # 2:15 PM IST - SQL Call
     - cron: '30 13 * * *'  # 7:00 PM IST - Evening WhatsApp
     - cron: '45 13 * * *'  # 7:15 PM IST - Evening Call
-    - cron: '54 14 * * *'   # TEST CALL NOW
   workflow_dispatch:
 
 jobs:
@@ -91,10 +90,4 @@ jobs:
           TWILIO_PHONE_NUMBER: ${{ secrets.TWILIO_PHONE_NUMBER }}
         run: python send_reminder.py call-Evening
 
-      - name: TEST CALL NOW
-        if: github.event.schedule == '33 14 * * *' || github.event_name == 'workflow_dispatch'
-        env:
-          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
-          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
-          TWILIO_PHONE_NUMBER: ${{ secrets.TWILIO_PHONE_NUMBER }}
-        run: python send_reminder.py call-DevOps
+      
