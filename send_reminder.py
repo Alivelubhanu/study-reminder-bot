@@ -150,7 +150,7 @@ elif action == "DevOps":
            f"Today's topic:\n*{devops}*\n\n"
            f"📺 Open your study material and start now!\n"
            f"⏱️ Target: 2 hours of focused study\n\n"
-           f"_(No reply? I will CALL you in 15 mins!)_ 📞")
+           f"_(No reply? I will CALL you in 5 mins!)_ 📞")
     send_whatsapp(msg)
 
 elif action == "Python":
@@ -158,7 +158,7 @@ elif action == "Python":
            f"Today's topic:\n*{python}*\n\n"
            f"📺 Open your study material and start now!\n"
            f"⏱️ Target: 2 hours of focused study\n\n"
-           f"_(No reply? I will CALL you in 15 mins!)_ 📞")
+           f"_(No reply? I will CALL you in 5 mins!)_ 📞")
     send_whatsapp(msg)
 
 elif action == "SQL":
@@ -166,7 +166,7 @@ elif action == "SQL":
            f"Today's topic:\n*{sql}*\n\n"
            f"📺 Open your study material and start now!\n"
            f"⏱️ Target: 2 hours of focused study\n\n"
-           f"_(No reply? I will CALL you in 15 mins!)_ 📞")
+           f"_(No reply? I will CALL you in 5 mins!)_ 📞")
     send_whatsapp(msg)
 
 elif action == "Evening":
