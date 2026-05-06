@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Reminder Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  :root {
+    --devops: #7C5CFC;
+    --python: #1DB97B;
+    --sql: #F5A623;
+    --evening: #E8476A;
+    --bg: #0D0D14;
+    --card: #15151F;
+    --card2: #1C1C2A;
+    --border: rgba(255,255,255,0.07);
+    --text: #F0EFF8;
+    --muted: #7A798A;
+    --font-head: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    padding: 2rem 1.5rem;
+    background-image:
+      radial-gradient(ellipse 600px 400px at 10% 0%, rgba(124,92,252,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 400px 300px at 90% 100%, rgba(232,71,106,0.08) 0%, transparent 70%);
+  }
+
+  .header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .header-left h1 {
+    font-family: var(--font-head);
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #fff 30%, #7C5CFC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .header-left p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 4px;
+  }
+
+  .live-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(29,185,84,0.1);
+    border: 1px solid rgba(29,185,84,0.25);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #1DB97B;
+  }
+
+  .live-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #1DB97B;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin-bottom: 1.5rem;
+  }
+
+  .metric {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.25rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+
+  .metric:hover { transform: translateY(-2px); }
+
+  .metric::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .metric.m-streak::before { background: linear-gradient(90deg, #F5A623, #E8476A); }
+  .metric.m-topics::before { background: linear-gradient(90deg, #1DB97B, #7C5CFC); }
+  .metric.m-wa::before { background: linear-gradient(90deg, #25D366, #128C7E); }
+  .metric.m-call::before { background: linear-gradient(90deg, #7C5CFC, #E8476A); }
+
+  .metric-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 10px;
+  }
+
+  .metric-value {
+    font-family: var(--font-head);
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .metric-sub {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 640px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-title {
+    font-family: var(--font-head);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card-title span { font-size: 16px; }
+
+  /* Topics */
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+  }
+
+  .topic {
+    border-radius: 12px;
+    padding: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .topic-icon { font-size: 20px; margin-bottom: 8px; }
+  .topic-name { font-family: var(--font-head); font-size: 13px; font-weight: 700; margin-bottom: 2px; }
+  .topic-time { font-size: 11px; opacity: 0.65; margin-bottom: 6px; }
+  .topic-desc { font-size: 11px; opacity: 0.8; margin-bottom: 8px; line-height: 1.4; }
+  .topic-pill {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .t-devops { background: rgba(124,92,252,0.15); border: 1px solid rgba(124,92,252,0.3); color: #B89FFF; }
+  .t-python { background: rgba(29,185,123,0.15); border: 1px solid rgba(29,185,123,0.3); color: #5DEBA0; }
+  .t-sql { background: rgba(245,166,35,0.15); border: 1px solid rgba(245,166,35,0.3); color: #FBCF6B; }
+  .t-evening { background: rgba(232,71,106,0.15); border: 1px solid rgba(232,71,106,0.3); color: #F5849E; }
+
+  /* Status rows */
+  .status-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: var(--card2);
+    margin-bottom: 8px;
+  }
+
+  .status-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+  }
+
+  .status-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .status-pills { display: flex; gap: 6px; }
+
+  .pill {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  .pill-ok { background: rgba(29,185,123,0.15); color: #5DEBA0; border: 1px solid rgba(29,185,123,0.25); }
+  .pill-pending { background: rgba(245,166,35,0.15); color: #FBCF6B; border: 1px solid rgba(245,166,35,0.25); }
+  .pill-missed { background: rgba(232,71,106,0.15); color: #F5849E; border: 1px solid rgba(232,71,106,0.25); }
+
+  /* Streak */
+  .streak-grid {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .streak-cell {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+    transition: transform 0.15s;
+  }
+
+  .streak-cell:hover { transform: scale(1.15); }
+  .streak-on { background: linear-gradient(135deg, #1DB97B, #0D9E62); color: #fff; }
+  .streak-off { background: var(--card2); color: var(--muted); border: 1px solid var(--border); }
+  .streak-today { box-shadow: 0 0 0 2px #7C5CFC; }
+
+  /* Chart */
+  .chart-wrap { position: relative; height: 200px; }
+
+  /* Loading */
+  #loading {
+    position: fixed; inset: 0;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    gap: 16px;
+  }
+
+  .spinner {
+    width: 40px; height: 40px;
+    border: 3px solid var(--border);
+    border-top-color: #7C5CFC;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  #loading p { color: var(--muted); font-size: 13px; }
+
+  .error-box {
+    background: rgba(232,71,106,0.1);
+    border: 1px solid rgba(232,71,106,0.3);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    color: #F5849E;
+    font-size: 13px;
+    margin-bottom: 1rem;
+  }
+</style>
+</head>
+<body>
+
+<div id="loading">
+  <div class="spinner"></div>
+  <p>Loading your study data...</p>
+</div>
+
+<div id="app" style="display:none; max-width:900px; margin:0 auto;">
+
+  <div class="header">
+    <div class="header-left">
+      <h1>📚 Study Reminder Bot</h1>
+      <p id="dateStr">Loading date...</p>
+    </div>
+    <div class="live-badge"><div class="live-dot"></div> Live</div>
+  </div>
+
+  <div id="errorBox" class="error-box" style="display:none"></div>
+
+  <!-- Metrics -->
+  <div class="metrics">
+    <div class="metric m-streak">
+      <div class="metric-label">🔥 Current Streak</div>
+      <div class="metric-value" id="streakVal">—</div>
+      <div class="metric-sub">days in a row</div>
+    </div>
+    <div class="metric m-topics">
+      <div class="metric-label">✅ Topics This Week</div>
+      <div class="metric-value" id="topicsVal">—</div>
+      <div class="metric-sub" id="topicsSub">completed</div>
+    </div>
+    <div class="metric m-wa">
+      <div class="metric-label">💬 WhatsApp Sent</div>
+      <div class="metric-value" id="waVal">—</div>
+      <div class="metric-sub">this month</div>
+    </div>
+    <div class="metric m-call">
+      <div class="metric-label">📞 Calls Made</div>
+      <div class="metric-value" id="callVal">—</div>
+      <div class="metric-sub">this month</div>
+    </div>
+  </div>
+
+  <!-- Today's Topics -->
+  <div class="card">
+    <div class="card-title"><span>📅</span> Today's Study Topics</div>
+    <div class="topics-grid">
+      <div class="topic t-devops">
+        <div class="topic-icon">🛠️</div>
+        <div class="topic-name">DevOps</div>
+        <div class="topic-time">7:00 AM</div>
+        <div class="topic-desc" id="devops-topic">Loading...</div>
+        <span class="topic-pill" id="devops-pill">—</span>
+      </div>
+      <div class="topic t-python">
+        <div class="topic-icon">🐍</div>
+        <div class="topic-name">Python</div>
+        <div class="topic-time">10:00 AM</div>
+        <div class="topic-desc" id="python-topic">Loading...</div>
+        <span class="topic-pill" id="python-pill">—</span>
+      </div>
+      <div class="topic t-sql">
+        <div class="topic-icon">🗄️</div>
+        <div class="topic-name">SQL</div>
+        <div class="topic-time">2:00 PM</div>
+        <div class="topic-desc" id="sql-topic">Loading...</div>
+        <span class="topic-pill" id="sql-pill">—</span>
+      </div>
+      <div class="topic t-evening">
+        <div class="topic-icon">🌙</div>
+        <div class="topic-name">Evening Revision</div>
+        <div class="topic-time">7:00 PM</div>
+        <div class="topic-desc">Revise all 3 topics</div>
+        <span class="topic-pill" id="evening-pill">—</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <!-- Reminder Status -->
+    <div class="card" style="margin-bottom:0">
+      <div class="card-title"><span>🔔</span> Reminder Status — Today</div>
+      <div id="statusList">
+        <div class="status-row">
+          <div class="status-left"><div class="status-dot" style="background:#7C5CFC"></div>DevOps 7AM</div>
+          <div class="status-pills">
+            <span class="pill" id="s-devops-wa">—</span>
+            <span class="pill" id="s-devops-call">—</span>
+          </div>
+        </div>
+        <div class="status-row">
+          <div class="status-left"><div class="status-dot" style="background:#1DB97B"></div>Python 10AM</div>
+          <div class="status-pills">
+            <span class="pill" id="s-python-wa">—</span>
+            <span class="pill" id="s-python-call">—</span>
+          </div>
+        </div>
+        <div class="status-row">
+          <div class="status-left"><div class="status-dot" style="background:#F5A623"></div>SQL 2PM</div>
+          <div class="status-pills">
+            <span class="pill" id="s-sql-wa">—</span>
+            <span class="pill" id="s-sql-call">—</span>
+          </div>
+        </div>
+        <div class="status-row">
+          <div class="status-left"><div class="status-dot" style="background:#E8476A"></div>Evening 7PM</div>
+          <div class="status-pills">
+            <span class="pill" id="s-evening-wa">—</span>
+            <span class="pill" id="s-evening-call">—</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Streak -->
+    <div class="card" style="margin-bottom:0">
+      <div class="card-title"><span>🔥</span> Streak — Last 14 Days</div>
+      <div class="streak-grid" id="streakGrid"></div>
+    </div>
+  </div>
+
+  <div style="margin-top:1.5rem"></div>
+
+  <!-- Weekly Chart -->
+  <div class="card">
+    <div class="card-title"><span>📊</span> Weekly Progress — Reminders Sent</div>
+    <div style="display:flex;gap:16px;margin-bottom:12px;flex-wrap:wrap">
+      <span style="font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:3px;background:#7C5CFC;display:inline-block"></span>DevOps</span>
+      <span style="font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:3px;background:#1DB97B;display:inline-block"></span>Python</span>
+      <span style="font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:3px;background:#F5A623;display:inline-block"></span>SQL</span>
+      <span style="font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;border-radius:3px;background:#E8476A;display:inline-block"></span>Evening</span>
+    </div>
+    <div class="chart-wrap">
+      <canvas id="weekChart"></canvas>
+    </div>
+  </div>
+
+  <div style="text-align:center;color:var(--muted);font-size:12px;margin-top:1rem">
+    Last updated: <span id="lastUpdated">—</span> · Auto-refreshes every 5 mins
+  </div>
+</div>
+
+<script>
+const TOPICS = {
+  devops: ["Demo1 — Intro to DevOps","Demo2 — Introduction","CI/CD Pipelines","Docker Basics","Kubernetes Intro","GitHub Actions","Monitoring & Logging"],
+  python: ["Variables & data types","Control flow","Functions","Lists & Dicts","OOP Basics","File handling","Modules & Packages"],
+  sql: ["Installing MySQL","SELECT queries","WHERE & ORDER BY","JOINs","Aggregations","Subqueries","Indexes & Performance"]
+};
+
+function getTodayTopic(subject) {
+  const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(),0,0)) / 86400000);
+  return TOPICS[subject][dayOfYear % TOPICS[subject].length];
+}
+
+function getWeekDays() {
+  const days = [];
+  const today = new Date();
+  const dow = today.getDay(); // 0=Sun
+  const monday = new Date(today);
+  monday.setDate(today.getDate() - ((dow + 6) % 7));
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(monday);
+    d.setDate(monday.getDate() + i);
+    days.push(d.toISOString().split('T')[0]);
+  }
+  return days;
+}
+
+function pillClass(sent) {
+  if (sent === true) return 'pill-ok';
+  if (sent === false) return 'pill-missed';
+  return 'pill-pending';
+}
+
+function pillText(sent, type) {
+  const label = type === 'call' ? '📞' : '💬';
+  if (sent === true) return label + ' Sent';
+  if (sent === false) return label + ' Missed';
+  return label + ' Pending';
+}
+
+async function loadData() {
+  try {
+    const res = await fetch('data.json?t=' + Date.now());
+    if (!res.ok) throw new Error('data.json not found');
+    return await res.json();
+  } catch (e) {
+    return null;
+  }
+}
+
+async function render() {
+  const data = await loadData();
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+
+  // Date
+  const now = new Date();
+  document.getElementById('dateStr').textContent = now.toLocaleDateString('en-IN', {weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  document.getElementById('lastUpdated').textContent = now.toLocaleTimeString('en-IN');
+
+  if (!data) {
+    document.getElementById('errorBox').style.display = 'block';
+    document.getElementById('errorBox').textContent = '⚠️ data.json not found. Add update_data.py to your repo and run a workflow to generate it.';
+    // show zeros
+    ['streakVal','topicsVal','waVal','callVal'].forEach(id => document.getElementById(id).textContent = '0');
+    renderChart({});
+    renderStreak(0, null);
+    setTopics(null);
+    setStatus(null);
+    return;
+  }
+
+  // Metrics
+  document.getElementById('streakVal').textContent = (data.streak || 0) + (data.streak === 1 ? '' : '');
+  document.getElementById('waVal').textContent = data.monthly_wa_count || 0;
+  document.getElementById('callVal').textContent = data.monthly_call_count || 0;
+
+  // Weekly topics count
+  const weekKey = (() => {
+    const d = new Date();
+    const jan1 = new Date(d.getFullYear(),0,1);
+    const week = Math.ceil(((d - jan1)/86400000 + jan1.getDay()+1)/7);
+    return `${d.getFullYear()}-W${String(week).padStart(2,'0')}`;
+  })();
+  const weekData = (data.weekly || {})[weekKey] || {};
+  let topicCount = 0, topicTotal = 0;
+  Object.values(weekData).forEach(day => {
+    ['devops','python','sql','evening'].forEach(s => {
+      topicTotal++;
+      if (day[s] && day[s].whatsapp) topicCount++;
+    });
+  });
+  document.getElementById('topicsVal').textContent = topicCount;
+  document.getElementById('topicsSub').textContent = `of ${topicTotal || 28} completed`;
+
+  // Today's topics
+  setTopics(weekData);
+
+  // Status today
+  const today = now.toISOString().split('T')[0];
+  const todayData = weekData[today] || null;
+  setStatus(todayData);
+
+  // Streak grid
+  renderStreak(data.streak || 0, data.last_study_date);
+
+  // Chart
+  renderChart(weekData);
+}
+
+function setTopics(weekData) {
+  const today = new Date().toISOString().split('T')[0];
+  const todayData = weekData ? weekData[today] : null;
+  ['devops','python','sql'].forEach(s => {
+    document.getElementById(s+'-topic').textContent = getTodayTopic(s);
+    const sent = todayData && todayData[s] && todayData[s].whatsapp;
+    const now = new Date();
+    const schedules = {devops:7, python:10, sql:14, evening:19};
+    const isPast = now.getHours() >= schedules[s];
+    const pill = document.getElementById(s+'-pill');
+    if (sent) { pill.textContent = '✅ Sent'; pill.style.background='rgba(29,185,123,0.2)'; pill.style.color='#5DEBA0'; }
+    else if (isPast) { pill.textContent = '❌ Missed'; pill.style.background='rgba(232,71,106,0.2)'; pill.style.color='#F5849E'; }
+    else { pill.textContent = '⏳ Upcoming'; pill.style.background='rgba(245,166,35,0.2)'; pill.style.color='#FBCF6B'; }
+  });
+  // Evening
+  const eS = todayData && todayData['evening'] && todayData['evening'].whatsapp;
+  const ePast = new Date().getHours() >= 19;
+  const ep = document.getElementById('evening-pill');
+  if (eS) { ep.textContent='✅ Sent'; ep.style.background='rgba(29,185,123,0.2)'; ep.style.color='#5DEBA0'; }
+  else if (ePast) { ep.textContent='❌ Missed'; ep.style.background='rgba(232,71,106,0.2)'; ep.style.color='#F5849E'; }
+  else { ep.textContent='⏳ Upcoming'; ep.style.background='rgba(245,166,35,0.2)'; ep.style.color='#FBCF6B'; }
+}
+
+function setStatus(todayData) {
+  ['devops','python','sql','evening'].forEach(s => {
+    const waSent = todayData && todayData[s] && todayData[s].whatsapp;
+    const callSent = todayData && todayData[s] && todayData[s].call;
+    const schedules = {devops:7, python:10, sql:14, evening:19};
+    const isPast = new Date().getHours() >= schedules[s];
+
+    const waEl = document.getElementById(`s-${s}-wa`);
+    const callEl = document.getElementById(`s-${s}-call`);
+
+    if (waSent) { waEl.textContent='💬 Sent'; waEl.className='pill pill-ok'; }
+    else if (isPast) { waEl.textContent='💬 Missed'; waEl.className='pill pill-missed'; }
+    else { waEl.textContent='💬 Pending'; waEl.className='pill pill-pending'; }
+
+    if (callSent) { callEl.textContent='📞 Sent'; callEl.className='pill pill-ok'; }
+    else if (isPast) { callEl.textContent='📞 Missed'; callEl.className='pill pill-missed'; }
+    else { callEl.textContent='📞 Pending'; callEl.className='pill pill-pending'; }
+  });
+}
+
+function renderStreak(streak, lastDate) {
+  const grid = document.getElementById('streakGrid');
+  grid.innerHTML = '';
+  const today = new Date();
+  const todayStr = today.toISOString().split('T')[0];
+  const days = ['M','T','W','T','F','S','S'];
+
+  for (let i = 13; i >= 0; i--) {
+    const d = new Date(today);
+    d.setDate(today.getDate() - i);
+    const dStr = d.toISOString().split('T')[0];
+    const dow = (d.getDay() + 6) % 7;
+
+    // Simple heuristic: mark as studied if within streak window
+    const daysAgo = i;
+    const isStudied = lastDate && daysAgo < streak && dStr <= lastDate;
+
+    const cell = document.createElement('div');
+    cell.className = 'streak-cell ' + (isStudied ? 'streak-on' : 'streak-off') + (dStr === todayStr ? ' streak-today' : '');
+    cell.textContent = days[dow];
+    cell.title = dStr;
+    grid.appendChild(cell);
+  }
+}
+
+let chartInstance = null;
+function renderChart(weekData) {
+  const weekDays = getWeekDays();
+  const labels = weekDays.map(d => new Date(d).toLocaleDateString('en-IN',{weekday:'short'}));
+  const subjects = ['devops','python','sql','evening'];
+  const colors = ['#7C5CFC','#1DB97B','#F5A623','#E8476A'];
+
+  const datasets = subjects.map((s,i) => ({
+    label: s.charAt(0).toUpperCase()+s.slice(1),
+    data: weekDays.map(day => {
+      const d = weekData[day];
+      return d && d[s] && d[s].whatsapp ? 1 : 0;
+    }),
+    backgroundColor: colors[i] + 'CC',
+    borderRadius: 6,
+    borderSkipped: false,
+  }));
+
+  if (chartInstance) chartInstance.destroy();
+  chartInstance = new Chart(document.getElementById('weekChart'), {
+    type: 'bar',
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => ctx.raw === 1 ? ctx.dataset.label + ': ✅ Done' : ctx.dataset.label + ': ❌ Missed'
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: 'rgba(255,255,255,0.05)' },
+          ticks: { color: '#7A798A', font: { size: 12 } }
+        },
+        y: {
+          min: 0, max: 1,
+          grid: { color: 'rgba(255,255,255,0.05)' },
+          ticks: {
+            stepSize: 1,
+            color: '#7A798A',
+            font: { size: 11 },
+            callback: v => v === 1 ? 'Done' : 'Missed'
+          }
+        }
+      }
+    }
+  });
+}
+
+render();
+setInterval(render, 5 * 60 * 1000);
+</script>
+</body>
+</html>
