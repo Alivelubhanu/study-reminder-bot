@@ -114,6 +114,7 @@ def send_whatsapp(message):
 
 def make_call(subject, topic):
     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+    topic = topic.replace('&', 'and').replace('<', '').replace('>', '')
     call_text = (
         f"Hello Alivelu! This is your study reminder. "
         f"It is time to start your {subject} session. "
@@ -122,7 +123,7 @@ def make_call(subject, topic):
         f"Remember, consistency is the key to success. "
         f"Good luck! Start studying now!"
     )
-    twiml = f"<Response><Pause length='6'/><Say voice='alice' language='en-IN'>{call_text}</Say></Response>"
+    twiml = f"<Response><Gather numDigits='1'><Say voice='alice' language='en-IN'>Press any key to hear your study reminder.</Say></Gather><Pause length='2'/><Say voice='alice' language='en-IN'>{call_text}</Say></Response>"
     call = client.calls.create(twiml=twiml, from_=TWILIO_CALL_FROM, to=YOUR_PHONE)
     print(f"Call made! SID: {call.sid}")
 
