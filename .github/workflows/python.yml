@@ -20,7 +20,7 @@ jobs:
           TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
           TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
           TWILIO_PHONE_NUMBER: ${{ secrets.TWILIO_PHONE_NUMBER }}
-        run: python send_reminder.py python
+        run: python send_reminder.py Python
       - name: Log reminder to data.json
         run: python update_data.py python whatsapp
       - name: Commit data.json
