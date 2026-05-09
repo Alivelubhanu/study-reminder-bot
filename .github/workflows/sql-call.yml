@@ -1,17 +1,36 @@
 name: SQL Call
+
 on:
   workflow_dispatch:
+
 jobs:
   call:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
+
       - run: pip install twilio
+
       - env:
           TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
           TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
           TWILIO_PHONE_NUMBER: ${{ secrets.TWILIO_PHONE_NUMBER }}
         run: python send_reminder.py call-SQL
+
+      - name: Log call to data.json
+        run: python update_data.py sql call
+
+      - name: Commit data.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          git diff --staged --quiet || git commit -m "log: sql call reminder"
+          git push
