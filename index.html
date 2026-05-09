@@ -511,7 +511,7 @@ async function render() {
     ['streakVal','topicsVal','waVal','callVal'].forEach(id => document.getElementById(id).textContent = '0');
     renderChart({});
     renderStreak(0, null);
-    setTopics(null);
+    setTopics(null, null);
     setStatus(null);
     return;
   }
@@ -540,7 +540,8 @@ async function render() {
   document.getElementById('topicsSub').textContent = `of ${topicTotal || 28} completed`;
 
   // Today's topics
-  setTopics(weekData);
+  const todayTopics = data.today_topics || {};
+  setTopics(weekData, todayTopics);
 
   // Status today
   const today = now.toISOString().split('T')[0];
@@ -554,20 +555,23 @@ async function render() {
   renderChart(weekData);
 }
 
-function setTopics(weekData) {
+function setTopics(weekData, todayTopics) {
   const today = new Date().toISOString().split('T')[0];
   const todayData = weekData ? weekData[today] : null;
+  const schedules = {devops:7, python:10, sql:14, evening:19};
+
   ['devops','python','sql'].forEach(s => {
-    document.getElementById(s+'-topic').textContent = getTodayTopic(s);
+    // Use real topic from data.json if available
+    const topicText = (todayTopics && todayTopics[s]) ? todayTopics[s] : getTodayTopic(s);
+    document.getElementById(s+'-topic').textContent = topicText;
     const sent = todayData && todayData[s] && todayData[s].whatsapp;
-    const now = new Date();
-    const schedules = {devops:7, python:10, sql:14, evening:19};
-    const isPast = now.getHours() >= schedules[s];
+    const isPast = new Date().getHours() >= schedules[s];
     const pill = document.getElementById(s+'-pill');
     if (sent) { pill.textContent = '✅ Sent'; pill.style.background='rgba(29,185,123,0.2)'; pill.style.color='#5DEBA0'; }
     else if (isPast) { pill.textContent = '❌ Missed'; pill.style.background='rgba(232,71,106,0.2)'; pill.style.color='#F5849E'; }
     else { pill.textContent = '⏳ Upcoming'; pill.style.background='rgba(245,166,35,0.2)'; pill.style.color='#FBCF6B'; }
   });
+
   // Evening
   const eS = todayData && todayData['evening'] && todayData['evening'].whatsapp;
   const ePast = new Date().getHours() >= 19;
