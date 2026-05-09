@@ -1,8 +1,36 @@
 {
-  "streak": 0,
-  "last_study_date": null,
-  "monthly_wa_count": 0,
+  "streak": 1,
+  "last_study_date": "2026-05-09",
+  "monthly_wa_count": 1,
   "monthly_call_count": 0,
-  "reminders": [],
-  "weekly": {}
+  "reminders": [
+    {
+      "date": "2026-05-09",
+      "time": "02:48",
+      "type": "devops",
+      "channel": "whatsapp"
+    }
+  ],
+  "weekly": {
+    "2026-W18": {
+      "2026-05-09": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
+      }
+    }
+  }
 }
