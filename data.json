@@ -1,7 +1,7 @@
 {
   "streak": 1,
   "last_study_date": "2026-05-09",
-  "monthly_wa_count": 10,
+  "monthly_wa_count": 11,
   "monthly_call_count": 1,
   "reminders": [
     {
@@ -69,6 +69,12 @@
       "time": "03:19",
       "type": "sql",
       "channel": "whatsapp"
+    },
+    {
+      "date": "2026-05-09",
+      "time": "04:30",
+      "type": "python",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -92,5 +98,12 @@
         }
       }
     }
+  },
+  "today_topics": {
+    "date": "2026-05-09",
+    "devops": "IAM introduction, MFA, users, policies",
+    "python": "Tuples & sets",
+    "sql": "SELECT \u2014 querying data",
+    "evening": "Revise all 3 topics"
   }
 }
