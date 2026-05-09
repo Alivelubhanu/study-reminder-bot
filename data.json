@@ -2,7 +2,7 @@
   "streak": 1,
   "last_study_date": "2026-05-09",
   "monthly_wa_count": 3,
-  "monthly_call_count": 0,
+  "monthly_call_count": 1,
   "reminders": [
     {
       "date": "2026-05-09",
@@ -21,6 +21,12 @@
       "time": "02:54",
       "type": "python",
       "channel": "whatsapp"
+    },
+    {
+      "date": "2026-05-09",
+      "time": "02:57",
+      "type": "devops",
+      "channel": "call"
     }
   ],
   "weekly": {
@@ -28,7 +34,7 @@
       "2026-05-09": {
         "devops": {
           "whatsapp": true,
-          "call": false
+          "call": true
         },
         "python": {
           "whatsapp": true,
