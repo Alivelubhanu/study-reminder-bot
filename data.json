@@ -2,7 +2,7 @@
   "streak": 2,
   "last_study_date": "2026-05-10",
   "monthly_wa_count": 18,
-  "monthly_call_count": 6,
+  "monthly_call_count": 7,
   "reminders": [
     {
       "date": "2026-05-09",
@@ -147,6 +147,12 @@
       "time": "08:30",
       "type": "sql",
       "channel": "whatsapp"
+    },
+    {
+      "date": "2026-05-10",
+      "time": "08:34",
+      "type": "sql",
+      "channel": "call"
     }
   ],
   "weekly": {
@@ -180,7 +186,7 @@
         },
         "sql": {
           "whatsapp": true,
-          "call": false
+          "call": true
         },
         "evening": {
           "whatsapp": false,
