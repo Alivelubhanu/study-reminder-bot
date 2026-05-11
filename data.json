@@ -1,7 +1,7 @@
 {
-  "streak": 2,
-  "last_study_date": "2026-05-10",
-  "monthly_wa_count": 19,
+  "streak": 3,
+  "last_study_date": "2026-05-11",
+  "monthly_wa_count": 20,
   "monthly_call_count": 8,
   "reminders": [
     {
@@ -165,6 +165,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-05-11",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -205,10 +211,30 @@
           "call": true
         }
       }
+    },
+    "2026-W19": {
+      "2026-05-11": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
+      }
     }
   },
   "today_topics": {
-    "date": "2026-05-10",
+    "date": "2026-05-11",
     "devops": "IAM introduction, MFA, users, policies",
     "python": "Tuples & sets",
     "sql": "SELECT \u2014 querying data",
