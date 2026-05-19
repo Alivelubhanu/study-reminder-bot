@@ -1,17 +1,11 @@
 {
-  "streak": 10,
-  "last_study_date": "2026-05-18",
-  "monthly_wa_count": 51,
+  "streak": 11,
+  "last_study_date": "2026-05-19",
+  "monthly_wa_count": 52,
   "monthly_call_count": 40,
   "reminders": [
     {
       "date": "2026-05-12",
-      "time": "13:30",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
-    {
-      "date": "2026-05-12",
       "time": "13:34",
       "type": "evening",
       "channel": "call"
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-05-19",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -490,14 +490,32 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-05-19": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-05-18",
-    "devops": "Amazon S3 \u2014 ACLs, Public/Private access, Bucket policy, Presigned URL, Static website hosting",
-    "python": "Functions \u2014 defining & calling",
-    "sql": "ALTER TABLE \u2014 add / drop columns",
+    "date": "2026-05-19",
+    "devops": "LINUX CLASS-1",
+    "python": "Function arguments & return values",
+    "sql": "Primary key & foreign key",
     "evening": "Revise all 3 topics"
   }
 }
