@@ -1,17 +1,11 @@
 {
-  "streak": 11,
-  "last_study_date": "2026-05-19",
-  "monthly_wa_count": 55,
+  "streak": 12,
+  "last_study_date": "2026-05-20",
+  "monthly_wa_count": 56,
   "monthly_call_count": 44,
   "reminders": [
     {
       "date": "2026-05-13",
-      "time": "13:30",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
-    {
-      "date": "2026-05-13",
       "time": "13:34",
       "type": "evening",
       "channel": "call"
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-05-20",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -508,14 +508,32 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-05-20": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-05-19",
-    "devops": "LINUX CLASS-1",
-    "python": "Function arguments & return values",
-    "sql": "Primary key & foreign key",
+    "date": "2026-05-20",
+    "devops": "LINUX CLASS-2",
+    "python": "Lambda functions",
+    "sql": "DISTINCT & aliases",
     "evening": "Revise all 3 topics"
   }
 }
