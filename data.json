@@ -1,17 +1,11 @@
 {
-  "streak": 12,
-  "last_study_date": "2026-05-20",
-  "monthly_wa_count": 59,
+  "streak": 13,
+  "last_study_date": "2026-05-21",
+  "monthly_wa_count": 60,
   "monthly_call_count": 48,
   "reminders": [
     {
       "date": "2026-05-14",
-      "time": "13:30",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
-    {
-      "date": "2026-05-14",
       "time": "13:34",
       "type": "evening",
       "channel": "call"
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-05-21",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -526,14 +526,32 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-05-21": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-05-20",
-    "devops": "LINUX CLASS-2",
-    "python": "Lambda functions",
-    "sql": "DISTINCT & aliases",
+    "date": "2026-05-21",
+    "devops": "LINUX CLASS-3",
+    "python": "File handling \u2014 read & write",
+    "sql": "COUNT, SUM, AVG, MIN, MAX",
     "evening": "Revise all 3 topics"
   }
 }
