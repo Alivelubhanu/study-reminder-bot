@@ -1,17 +1,11 @@
 {
-  "streak": 16,
-  "last_study_date": "2026-05-24",
-  "monthly_wa_count": 75,
+  "streak": 17,
+  "last_study_date": "2026-05-25",
+  "monthly_wa_count": 76,
   "monthly_call_count": 64,
   "reminders": [
     {
       "date": "2026-05-18",
-      "time": "13:30",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
-    {
-      "date": "2026-05-18",
       "time": "13:34",
       "type": "evening",
       "channel": "call"
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-05-25",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -599,10 +599,30 @@
           "call": true
         }
       }
+    },
+    "2026-W21": {
+      "2026-05-25": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
+      }
     }
   },
   "today_topics": {
-    "date": "2026-05-24",
+    "date": "2026-05-25",
     "devops": "LINUX CLASS-5",
     "python": "Modules & imports",
     "sql": "JOINS \u2014 INNER JOIN",
