@@ -1,17 +1,11 @@
 {
-  "streak": 18,
-  "last_study_date": "2026-05-26",
-  "monthly_wa_count": 83,
+  "streak": 19,
+  "last_study_date": "2026-05-27",
+  "monthly_wa_count": 84,
   "monthly_call_count": 72,
   "reminders": [
     {
       "date": "2026-05-20",
-      "time": "13:30",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
-    {
-      "date": "2026-05-20",
       "time": "13:34",
       "type": "evening",
       "channel": "call"
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-05-27",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -636,14 +636,32 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-05-27": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-05-26",
-    "devops": "S3 \u2014 Versioning, Storage classes, Lifecycle management, CORS",
-    "python": "Standard library \u2014 math, random, datetime",
-    "sql": "JOINS \u2014 LEFT & RIGHT JOIN",
+    "date": "2026-05-27",
+    "devops": "AWS CLI",
+    "python": "List comprehensions",
+    "sql": "JOINS \u2014 FULL OUTER JOIN",
     "evening": "Revise all 3 topics"
   }
 }
