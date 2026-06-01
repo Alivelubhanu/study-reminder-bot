@@ -1,17 +1,11 @@
 {
-  "streak": 23,
-  "last_study_date": "2026-05-31",
-  "monthly_wa_count": 103,
+  "streak": 24,
+  "last_study_date": "2026-06-01",
+  "monthly_wa_count": 104,
   "monthly_call_count": 92,
   "reminders": [
     {
       "date": "2026-05-25",
-      "time": "13:30",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
-    {
-      "date": "2026-05-25",
       "time": "13:34",
       "type": "evening",
       "channel": "call"
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-06-01",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -727,10 +727,30 @@
           "call": true
         }
       }
+    },
+    "2026-W22": {
+      "2026-06-01": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
+      }
     }
   },
   "today_topics": {
-    "date": "2026-05-31",
+    "date": "2026-06-01",
     "devops": "VPC Peering",
     "python": "OOP \u2014 attributes & methods",
     "sql": "IN, BETWEEN, LIKE",
