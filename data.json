@@ -2,16 +2,10 @@
   "streak": 26,
   "last_study_date": "2026-06-03",
   "monthly_wa_count": 113,
-  "monthly_call_count": 101,
+  "monthly_call_count": 102,
   "reminders": [
     {
       "date": "2026-05-28",
-      "time": "01:34",
-      "type": "devops",
-      "channel": "call"
-    },
-    {
-      "date": "2026-05-28",
       "time": "04:30",
       "type": "python",
       "channel": "whatsapp"
@@ -303,6 +297,12 @@
       "time": "04:30",
       "type": "python",
       "channel": "whatsapp"
+    },
+    {
+      "date": "2026-06-03",
+      "time": "04:34",
+      "type": "python",
+      "channel": "call"
     }
   ],
   "weekly": {
@@ -772,7 +772,7 @@
         },
         "python": {
           "whatsapp": true,
-          "call": false
+          "call": true
         },
         "sql": {
           "whatsapp": false,
