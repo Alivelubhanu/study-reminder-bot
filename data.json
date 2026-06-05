@@ -1,17 +1,11 @@
 {
-  "streak": 27,
-  "last_study_date": "2026-06-04",
-  "monthly_wa_count": 119,
+  "streak": 28,
+  "last_study_date": "2026-06-05",
+  "monthly_wa_count": 120,
   "monthly_call_count": 108,
   "reminders": [
     {
       "date": "2026-05-29",
-      "time": "13:30",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
-    {
-      "date": "2026-05-29",
       "time": "13:34",
       "type": "evening",
       "channel": "call"
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-06-05",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -800,14 +800,32 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-06-05": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-06-04",
-    "devops": "EC2 \u2014 Types, Benefits, Purchasing options, Launch EC2 (Lab)",
-    "python": "Regular expressions basics",
-    "sql": "Views \u2014 creating & using",
+    "date": "2026-06-05",
+    "devops": "AMI, EBS Volumes",
+    "python": "Working with JSON",
+    "sql": "Stored procedures basics",
     "evening": "Revise all 3 topics"
   }
 }
