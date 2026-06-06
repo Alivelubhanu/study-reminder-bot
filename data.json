@@ -1,17 +1,11 @@
 {
-  "streak": 28,
-  "last_study_date": "2026-06-05",
-  "monthly_wa_count": 123,
+  "streak": 29,
+  "last_study_date": "2026-06-06",
+  "monthly_wa_count": 124,
   "monthly_call_count": 112,
   "reminders": [
     {
       "date": "2026-05-30",
-      "time": "13:30",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
-    {
-      "date": "2026-05-30",
       "time": "13:34",
       "type": "evening",
       "channel": "call"
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-06-06",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -818,14 +818,32 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-06-06": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-06-05",
-    "devops": "AMI, EBS Volumes",
-    "python": "Working with JSON",
-    "sql": "Stored procedures basics",
+    "date": "2026-06-06",
+    "devops": "Load balancers, Lambda with EC2",
+    "python": "Working with CSV files",
+    "sql": "Transactions \u2014 COMMIT, ROLLBACK",
     "evening": "Revise all 3 topics"
   }
 }
