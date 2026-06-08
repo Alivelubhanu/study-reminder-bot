@@ -1,17 +1,11 @@
 {
-  "streak": 30,
-  "last_study_date": "2026-06-07",
-  "monthly_wa_count": 131,
+  "streak": 31,
+  "last_study_date": "2026-06-08",
+  "monthly_wa_count": 132,
   "monthly_call_count": 120,
   "reminders": [
     {
       "date": "2026-06-01",
-      "time": "13:30",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
-    {
-      "date": "2026-06-01",
       "time": "13:34",
       "type": "evening",
       "channel": "call"
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-06-08",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -855,10 +855,30 @@
           "call": true
         }
       }
+    },
+    "2026-W23": {
+      "2026-06-08": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
+      }
     }
   },
   "today_topics": {
-    "date": "2026-06-07",
+    "date": "2026-06-08",
     "devops": "Load balancers, Lambda with EC2",
     "python": "Working with CSV files",
     "sql": "Transactions \u2014 COMMIT, ROLLBACK",
