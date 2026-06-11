@@ -1,17 +1,11 @@
 {
-  "streak": 33,
-  "last_study_date": "2026-06-10",
-  "monthly_wa_count": 143,
+  "streak": 34,
+  "last_study_date": "2026-06-11",
+  "monthly_wa_count": 144,
   "monthly_call_count": 132,
   "reminders": [
     {
       "date": "2026-06-04",
-      "time": "13:30",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
-    {
-      "date": "2026-06-04",
       "time": "13:34",
       "type": "evening",
       "channel": "call"
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-06-11",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -910,14 +910,32 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-06-11": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-06-10",
-    "devops": "GIT: Ignore, Reset, Ammend",
-    "python": "Mini project: number guessing game",
-    "sql": "CTEs \u2014 WITH clause",
+    "date": "2026-06-11",
+    "devops": "GIT: Revert, Branches, Merge, Stash",
+    "python": "Mini project: to-do list app",
+    "sql": "Mini project: employee database queries",
     "evening": "Revise all 3 topics"
   }
 }
