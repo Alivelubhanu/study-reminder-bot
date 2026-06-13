@@ -1,17 +1,11 @@
 {
-  "streak": 35,
-  "last_study_date": "2026-06-12",
-  "monthly_wa_count": 151,
+  "streak": 36,
+  "last_study_date": "2026-06-13",
+  "monthly_wa_count": 152,
   "monthly_call_count": 140,
   "reminders": [
     {
       "date": "2026-06-06",
-      "time": "13:30",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
-    {
-      "date": "2026-06-06",
       "time": "13:34",
       "type": "evening",
       "channel": "call"
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-06-13",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -946,14 +946,32 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-06-13": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-06-12",
-    "devops": "GIT: Cherry-pick, Rebase & GitHub",
-    "python": "Python recap & practice",
-    "sql": "SQL recap & practice",
+    "date": "2026-06-13",
+    "devops": "GITHUB",
+    "python": "Python revision",
+    "sql": "SQL revision",
     "evening": "Revise all 3 topics"
   }
 }
