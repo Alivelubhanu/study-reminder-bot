@@ -1,15 +1,9 @@
 {
-  "streak": 37,
-  "last_study_date": "2026-06-14",
-  "monthly_wa_count": 159,
+  "streak": 38,
+  "last_study_date": "2026-06-15",
+  "monthly_wa_count": 160,
   "monthly_call_count": 148,
   "reminders": [
-    {
-      "date": "2026-06-08",
-      "time": "13:30",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
     {
       "date": "2026-06-08",
       "time": "13:34",
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-06-15",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -983,10 +983,30 @@
           "call": true
         }
       }
+    },
+    "2026-W24": {
+      "2026-06-15": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
+      }
     }
   },
   "today_topics": {
-    "date": "2026-06-14",
+    "date": "2026-06-15",
     "devops": "GITHUB",
     "python": "Python revision",
     "sql": "SQL revision",
