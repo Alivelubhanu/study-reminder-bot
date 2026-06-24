@@ -1,15 +1,9 @@
 {
-  "streak": 46,
-  "last_study_date": "2026-06-23",
-  "monthly_wa_count": 195,
+  "streak": 47,
+  "last_study_date": "2026-06-24",
+  "monthly_wa_count": 196,
   "monthly_call_count": 184,
   "reminders": [
-    {
-      "date": "2026-06-17",
-      "time": "13:31",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
     {
       "date": "2026-06-17",
       "time": "13:34",
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-06-24",
+      "time": "01:31",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -1148,12 +1148,30 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-06-24": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-06-23",
-    "devops": "JENKINS: Free Style Deployment",
+    "date": "2026-06-24",
+    "devops": "JENKINS: Master-Slave & User Management",
     "python": "Python revision",
     "sql": "SQL revision",
     "evening": "Revise all 3 topics"
