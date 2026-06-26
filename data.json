@@ -1,17 +1,11 @@
 {
-  "streak": 48,
-  "last_study_date": "2026-06-25",
-  "monthly_wa_count": 203,
+  "streak": 49,
+  "last_study_date": "2026-06-26",
+  "monthly_wa_count": 204,
   "monthly_call_count": 192,
   "reminders": [
     {
       "date": "2026-06-19",
-      "time": "13:30",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
-    {
-      "date": "2026-06-19",
       "time": "13:34",
       "type": "evening",
       "channel": "call"
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-06-26",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -1184,12 +1184,30 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-06-26": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-06-25",
-    "devops": "JENKINS Integration with NEXUS",
+    "date": "2026-06-26",
+    "devops": "JENKINS: Pipeline Jobs Part-1",
     "python": "Python revision",
     "sql": "SQL revision",
     "evening": "Revise all 3 topics"
