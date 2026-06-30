@@ -1,17 +1,11 @@
 {
-  "streak": 52,
-  "last_study_date": "2026-06-29",
-  "monthly_wa_count": 219,
+  "streak": 53,
+  "last_study_date": "2026-06-30",
+  "monthly_wa_count": 220,
   "monthly_call_count": 208,
   "reminders": [
     {
       "date": "2026-06-23",
-      "time": "13:31",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
-    {
-      "date": "2026-06-23",
       "time": "13:34",
       "type": "evening",
       "channel": "call"
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-06-30",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -1258,12 +1258,30 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-06-30": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-06-29",
-    "devops": "JENKINS: Pipeline Jobs Part-2",
+    "date": "2026-06-30",
+    "devops": "JENKINS: End to End Project",
     "python": "Python revision",
     "sql": "SQL revision",
     "evening": "Revise all 3 topics"
