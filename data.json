@@ -1,15 +1,9 @@
 {
-  "streak": 53,
-  "last_study_date": "2026-06-30",
-  "monthly_wa_count": 223,
+  "streak": 54,
+  "last_study_date": "2026-07-01",
+  "monthly_wa_count": 224,
   "monthly_call_count": 212,
   "reminders": [
-    {
-      "date": "2026-06-24",
-      "time": "13:31",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
     {
       "date": "2026-06-24",
       "time": "13:34",
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-07-01",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -1276,12 +1276,30 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-07-01": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-06-30",
-    "devops": "JENKINS: End to End Project",
+    "date": "2026-07-01",
+    "devops": "ANSIBLE: Intro and Basics of Playbooks",
     "python": "Python revision",
     "sql": "SQL revision",
     "evening": "Revise all 3 topics"
