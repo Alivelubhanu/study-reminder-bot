@@ -1,15 +1,9 @@
 {
-  "streak": 55,
-  "last_study_date": "2026-07-02",
-  "monthly_wa_count": 231,
+  "streak": 56,
+  "last_study_date": "2026-07-03",
+  "monthly_wa_count": 232,
   "monthly_call_count": 220,
   "reminders": [
-    {
-      "date": "2026-06-26",
-      "time": "13:31",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
     {
       "date": "2026-06-26",
       "time": "13:34",
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-07-03",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -1312,12 +1312,30 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-07-03": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-07-02",
-    "devops": "ANSIBLE: Playbooks using YUM, ACTION, COMMAND, VARIABLES, TAGS, FILE, COPY, USER, GROUP",
+    "date": "2026-07-03",
+    "devops": "ANSIBLE: Service, Conditions, Handlers, App Server, Vault, Git",
     "python": "Python revision",
     "sql": "SQL revision",
     "evening": "Revise all 3 topics"
