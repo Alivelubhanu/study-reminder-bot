@@ -1,17 +1,11 @@
 {
-  "streak": 60,
-  "last_study_date": "2026-07-07",
-  "monthly_wa_count": 251,
+  "streak": 61,
+  "last_study_date": "2026-07-08",
+  "monthly_wa_count": 252,
   "monthly_call_count": 240,
   "reminders": [
     {
       "date": "2026-07-01",
-      "time": "13:30",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
-    {
-      "date": "2026-07-01",
       "time": "13:34",
       "type": "evening",
       "channel": "call"
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-07-08",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -1404,11 +1404,29 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-07-08": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-07-07",
+    "date": "2026-07-08",
     "devops": "No class \u2014 revise Ansible",
     "python": "Python revision",
     "sql": "SQL revision",
