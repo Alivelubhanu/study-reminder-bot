@@ -1,15 +1,9 @@
 {
-  "streak": 61,
-  "last_study_date": "2026-07-08",
-  "monthly_wa_count": 255,
+  "streak": 62,
+  "last_study_date": "2026-07-09",
+  "monthly_wa_count": 256,
   "monthly_call_count": 244,
   "reminders": [
-    {
-      "date": "2026-07-02",
-      "time": "13:30",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
     {
       "date": "2026-07-02",
       "time": "13:34",
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-07-09",
+      "time": "01:31",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -1422,12 +1422,30 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-07-09": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-07-08",
-    "devops": "No class \u2014 revise Ansible",
+    "date": "2026-07-09",
+    "devops": "ANSIBLE: Adhoc Commands, Host Patterns",
     "python": "Python revision",
     "sql": "SQL revision",
     "evening": "Revise all 3 topics"
