@@ -1,15 +1,9 @@
 {
-  "streak": 63,
-  "last_study_date": "2026-07-10",
-  "monthly_wa_count": 262,
+  "streak": 64,
+  "last_study_date": "2026-07-11",
+  "monthly_wa_count": 263,
   "monthly_call_count": 252,
   "reminders": [
-    {
-      "date": "2026-07-04",
-      "time": "08:34",
-      "type": "sql",
-      "channel": "call"
-    },
     {
       "date": "2026-07-04",
       "time": "13:30",
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-07-11",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -1458,12 +1458,30 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-07-11": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-07-10",
-    "devops": "No class \u2014 revise Ansible",
+    "date": "2026-07-11",
+    "devops": "ANSIBLE: Jinja2, Asynchronous & Poll, Strategies + Docker Intro",
     "python": "Python revision",
     "sql": "SQL revision",
     "evening": "Revise all 3 topics"
