@@ -1,17 +1,11 @@
 {
-  "streak": 66,
-  "last_study_date": "2026-07-13",
-  "monthly_wa_count": 274,
+  "streak": 67,
+  "last_study_date": "2026-07-14",
+  "monthly_wa_count": 275,
   "monthly_call_count": 264,
   "reminders": [
     {
       "date": "2026-07-07",
-      "time": "08:34",
-      "type": "sql",
-      "channel": "call"
-    },
-    {
-      "date": "2026-07-07",
       "time": "13:30",
       "type": "evening",
       "channel": "whatsapp"
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-07-14",
+      "time": "01:31",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -1514,12 +1514,30 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-07-14": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-07-13",
-    "devops": "ANSIBLE: Jinja2, Asynchronous & Poll, Strategies + Docker Intro",
+    "date": "2026-07-14",
+    "devops": "DOCKER: Containers & Images",
     "python": "Python revision",
     "sql": "SQL revision",
     "evening": "Revise all 3 topics"
