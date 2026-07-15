@@ -1,15 +1,9 @@
 {
-  "streak": 67,
-  "last_study_date": "2026-07-14",
-  "monthly_wa_count": 278,
+  "streak": 68,
+  "last_study_date": "2026-07-15",
+  "monthly_wa_count": 279,
   "monthly_call_count": 268,
   "reminders": [
-    {
-      "date": "2026-07-08",
-      "time": "08:34",
-      "type": "sql",
-      "channel": "call"
-    },
     {
       "date": "2026-07-08",
       "time": "13:31",
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-07-15",
+      "time": "01:31",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -1532,12 +1532,30 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-07-15": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-07-14",
-    "devops": "DOCKER: Containers & Images",
+    "date": "2026-07-15",
+    "devops": "DOCKER: Dockerfile Part-1",
     "python": "Python revision",
     "sql": "SQL revision",
     "evening": "Revise all 3 topics"
