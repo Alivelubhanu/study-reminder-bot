@@ -1,15 +1,9 @@
 {
-  "streak": 68,
-  "last_study_date": "2026-07-15",
-  "monthly_wa_count": 282,
+  "streak": 69,
+  "last_study_date": "2026-07-16",
+  "monthly_wa_count": 283,
   "monthly_call_count": 272,
   "reminders": [
-    {
-      "date": "2026-07-09",
-      "time": "13:31",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
     {
       "date": "2026-07-09",
       "time": "13:34",
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-07-16",
+      "time": "01:31",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -1550,12 +1550,30 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-07-16": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-07-15",
-    "devops": "DOCKER: Dockerfile Part-1",
+    "date": "2026-07-16",
+    "devops": "DOCKER: Dockerfile Part-2 & Integrate Docker with Jenkins",
     "python": "Python revision",
     "sql": "SQL revision",
     "evening": "Revise all 3 topics"
