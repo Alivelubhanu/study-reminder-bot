@@ -2,16 +2,10 @@
   "streak": 72,
   "last_study_date": "2026-07-19",
   "monthly_wa_count": 298,
-  "monthly_call_count": 288,
+  "monthly_call_count": 289,
   "reminders": [
     {
       "date": "2026-07-13",
-      "time": "13:31",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
-    {
-      "date": "2026-07-13",
       "time": "13:34",
       "type": "evening",
       "channel": "call"
@@ -302,6 +296,12 @@
       "date": "2026-07-19",
       "time": "13:34",
       "type": "evening",
+      "channel": "call"
+    },
+    {
+      "date": "2026-07-20",
+      "time": "01:34",
+      "type": "devops",
       "channel": "call"
     }
   ],
@@ -1623,10 +1623,30 @@
           "call": true
         }
       }
+    },
+    "2026-W29": {
+      "2026-07-20": {
+        "devops": {
+          "whatsapp": false,
+          "call": true
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
+      }
     }
   },
   "today_topics": {
-    "date": "2026-07-19",
+    "date": "2026-07-20",
     "devops": "DOCKER: Registry & Networks",
     "python": "Python revision",
     "sql": "SQL revision",
