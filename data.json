@@ -1,17 +1,11 @@
 {
-  "streak": 73,
-  "last_study_date": "2026-07-20",
-  "monthly_wa_count": 301,
+  "streak": 74,
+  "last_study_date": "2026-07-21",
+  "monthly_wa_count": 302,
   "monthly_call_count": 292,
   "reminders": [
     {
       "date": "2026-07-14",
-      "time": "08:34",
-      "type": "sql",
-      "channel": "call"
-    },
-    {
-      "date": "2026-07-14",
       "time": "13:31",
       "type": "evening",
       "channel": "whatsapp"
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-07-21",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -1642,12 +1642,30 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-07-21": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-07-20",
-    "devops": "DOCKER: Registry & Networks",
+    "date": "2026-07-21",
+    "devops": "DOCKER: Swarm",
     "python": "Python revision",
     "sql": "SQL revision",
     "evening": "Revise all 3 topics"
