@@ -1,17 +1,11 @@
 {
-  "streak": 76,
-  "last_study_date": "2026-07-23",
-  "monthly_wa_count": 313,
+  "streak": 77,
+  "last_study_date": "2026-07-24",
+  "monthly_wa_count": 314,
   "monthly_call_count": 304,
   "reminders": [
     {
       "date": "2026-07-17",
-      "time": "08:34",
-      "type": "sql",
-      "channel": "call"
-    },
-    {
-      "date": "2026-07-17",
       "time": "13:30",
       "type": "evening",
       "channel": "whatsapp"
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-07-24",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -1696,12 +1696,30 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-07-24": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-07-23",
-    "devops": "DOCKER: Compose",
+    "date": "2026-07-24",
+    "devops": "DOCKER: Dockerfiles for NodeJS, Java & Database",
     "python": "Python revision",
     "sql": "SQL revision",
     "evening": "Revise all 3 topics"
