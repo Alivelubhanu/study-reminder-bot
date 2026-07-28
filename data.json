@@ -1,17 +1,11 @@
 {
-  "streak": 80,
-  "last_study_date": "2026-07-27",
-  "monthly_wa_count": 329,
+  "streak": 81,
+  "last_study_date": "2026-07-28",
+  "monthly_wa_count": 330,
   "monthly_call_count": 320,
   "reminders": [
     {
       "date": "2026-07-21",
-      "time": "13:30",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
-    {
-      "date": "2026-07-21",
       "time": "13:34",
       "type": "evening",
       "channel": "call"
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-07-28",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -1770,12 +1770,30 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-07-28": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-07-27",
-    "devops": "DOCKER: ECS, Docker Directory Data & Stack",
+    "date": "2026-07-28",
+    "devops": "DOCKER: End to End Project",
     "python": "Python revision",
     "sql": "SQL revision",
     "evening": "Revise all 3 topics"
