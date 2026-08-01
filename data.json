@@ -1,15 +1,9 @@
 {
-  "streak": 84,
-  "last_study_date": "2026-07-31",
-  "monthly_wa_count": 345,
+  "streak": 85,
+  "last_study_date": "2026-08-01",
+  "monthly_wa_count": 346,
   "monthly_call_count": 336,
   "reminders": [
-    {
-      "date": "2026-07-25",
-      "time": "13:30",
-      "type": "evening",
-      "channel": "whatsapp"
-    },
     {
       "date": "2026-07-25",
       "time": "13:34",
@@ -303,6 +297,12 @@
       "time": "13:34",
       "type": "evening",
       "channel": "call"
+    },
+    {
+      "date": "2026-08-01",
+      "time": "01:30",
+      "type": "devops",
+      "channel": "whatsapp"
     }
   ],
   "weekly": {
@@ -1842,12 +1842,30 @@
           "whatsapp": true,
           "call": true
         }
+      },
+      "2026-08-01": {
+        "devops": {
+          "whatsapp": true,
+          "call": false
+        },
+        "python": {
+          "whatsapp": false,
+          "call": false
+        },
+        "sql": {
+          "whatsapp": false,
+          "call": false
+        },
+        "evening": {
+          "whatsapp": false,
+          "call": false
+        }
       }
     }
   },
   "today_topics": {
-    "date": "2026-07-31",
-    "devops": "KUBERNETES: Services",
+    "date": "2026-08-01",
+    "devops": "KUBERNETES: RC & RS",
     "python": "Python revision",
     "sql": "SQL revision",
     "evening": "Revise all 3 topics"
